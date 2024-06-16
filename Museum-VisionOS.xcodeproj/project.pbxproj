@@ -9,23 +9,25 @@
 /* Begin PBXBuildFile section */
 		38B68F5B2C1EC483007B32EC /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = 38B68F5A2C1EC483007B32EC /* RealityKitContent */; };
 		38B68F5D2C1EC483007B32EC /* Museum_VisionOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B68F5C2C1EC483007B32EC /* Museum_VisionOSApp.swift */; };
-		38B68F5F2C1EC483007B32EC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B68F5E2C1EC483007B32EC /* ContentView.swift */; };
+		38B68F5F2C1EC483007B32EC /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B68F5E2C1EC483007B32EC /* WelcomeView.swift */; };
 		38B68F612C1EC483007B32EC /* ImmersiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B68F602C1EC483007B32EC /* ImmersiveView.swift */; };
 		38B68F632C1EC483007B32EC /* ImageBasedLighting.skybox in Resources */ = {isa = PBXBuildFile; fileRef = 38B68F622C1EC483007B32EC /* ImageBasedLighting.skybox */; };
 		38B68F652C1EC485007B32EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38B68F642C1EC485007B32EC /* Assets.xcassets */; };
 		38B68F682C1EC485007B32EC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38B68F672C1EC485007B32EC /* Preview Assets.xcassets */; };
+		38B68F722C1EFE15007B32EC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B68F712C1EFE15007B32EC /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		38B68F552C1EC483007B32EC /* Museum-VisionOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Museum-VisionOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		38B68F592C1EC483007B32EC /* RealityKitContent */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityKitContent; sourceTree = "<group>"; };
 		38B68F5C2C1EC483007B32EC /* Museum_VisionOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Museum_VisionOSApp.swift; sourceTree = "<group>"; };
-		38B68F5E2C1EC483007B32EC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		38B68F5E2C1EC483007B32EC /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		38B68F602C1EC483007B32EC /* ImmersiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImmersiveView.swift; sourceTree = "<group>"; };
 		38B68F622C1EC483007B32EC /* ImageBasedLighting.skybox */ = {isa = PBXFileReference; lastKnownFileType = file.skybox; path = ImageBasedLighting.skybox; sourceTree = "<group>"; };
 		38B68F642C1EC485007B32EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		38B68F672C1EC485007B32EC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		38B68F692C1EC485007B32EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		38B68F712C1EFE15007B32EC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,12 +63,13 @@
 			isa = PBXGroup;
 			children = (
 				38B68F5C2C1EC483007B32EC /* Museum_VisionOSApp.swift */,
-				38B68F5E2C1EC483007B32EC /* ContentView.swift */,
+				38B68F5E2C1EC483007B32EC /* WelcomeView.swift */,
 				38B68F602C1EC483007B32EC /* ImmersiveView.swift */,
 				38B68F622C1EC483007B32EC /* ImageBasedLighting.skybox */,
 				38B68F642C1EC485007B32EC /* Assets.xcassets */,
 				38B68F692C1EC485007B32EC /* Info.plist */,
 				38B68F662C1EC485007B32EC /* Preview Content */,
+				38B68F712C1EFE15007B32EC /* Constants.swift */,
 			);
 			path = "Museum-VisionOS";
 			sourceTree = "<group>";
@@ -161,7 +164,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				38B68F5F2C1EC483007B32EC /* ContentView.swift in Sources */,
+				38B68F722C1EFE15007B32EC /* Constants.swift in Sources */,
+				38B68F5F2C1EC483007B32EC /* WelcomeView.swift in Sources */,
 				38B68F5D2C1EC483007B32EC /* Museum_VisionOSApp.swift in Sources */,
 				38B68F612C1EC483007B32EC /* ImmersiveView.swift in Sources */,
 			);
