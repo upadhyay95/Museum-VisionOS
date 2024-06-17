@@ -67,12 +67,12 @@
 				38B68F5C2C1EC483007B32EC /* Museum_VisionOSApp.swift */,
 				38B68F5E2C1EC483007B32EC /* WelcomeView.swift */,
 				38B68F602C1EC483007B32EC /* ImmersiveView.swift */,
+				38B68F732C1F1D51007B32EC /* MuseumView.swift */,
 				38B68F622C1EC483007B32EC /* ImageBasedLighting.skybox */,
 				38B68F642C1EC485007B32EC /* Assets.xcassets */,
 				38B68F692C1EC485007B32EC /* Info.plist */,
 				38B68F662C1EC485007B32EC /* Preview Content */,
 				38B68F712C1EFE15007B32EC /* Constants.swift */,
-				38B68F732C1F1D51007B32EC /* MuseumView.swift */,
 			);
 			path = "Museum-VisionOS";
 			sourceTree = "<group>";

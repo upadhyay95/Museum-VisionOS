@@ -18,4 +18,13 @@ struct Constants {
         static let toggleLabel = "Yes, I'm ready!"
         static let toggleHint = "Toggles the immersive museum experience on or off"
     }
+    
+    struct EntityNames {
+        static let dancingMan = "dancing_man"
+        static let immersiveView = "Immersive"
+        static let ryzhanovka = "ryzhanovka"
+        static let milos = "milos_plaster_cast"
+        static let sculpture = "sculpture_st"
+        static let imageBasedLight = "ImageBasedLight"
+    }
 }

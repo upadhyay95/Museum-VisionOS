@@ -5,41 +5,11 @@
     upAxis = "Y"
 )
 
-reorder rootPrims = ["Root", "GridMaterial"]
+reorder rootPrims = ["Root", "chest_milos"]
 
 def Xform "Root"
 {
-    reorder nameChildren = ["Sphere_Left", "Sphere_Right", "GridMaterial"]
-    def Sphere "Sphere_Right" (
-        active = true
-        prepend apiSchemas = ["MaterialBindingAPI"]
-    )
-    {
-        rel material:binding = </Root/GridMaterial/GridMaterial> (
-            bindMaterialAs = "weakerThanDescendants"
-        )
-        double radius = 0.1
-        quatf xformOp:orient = (1, 0, 0, 0)
-        float3 xformOp:scale = (1, 1, 1)
-        float3 xformOp:translate = (0.5, 1.5, -1.5)
-        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
-    }
-
-    def Sphere "Sphere_Left" (
-        active = true
-        prepend apiSchemas = ["MaterialBindingAPI"]
-    )
-    {
-        rel material:binding = </Root/GridMaterial/GridMaterial> (
-            bindMaterialAs = "weakerThanDescendants"
-        )
-        double radius = 0.1
-        quatf xformOp:orient = (1, 0, 0, 0)
-        float3 xformOp:scale = (1, 1, 1)
-        float3 xformOp:translate = (-0.5, 1.5, -1.5)
-        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
-    }
-
+    reorder nameChildren = ["GridMaterial", "ryzhanoka_group", "sculpture_group", "milos_group"]
     def "GridMaterial" (
         active = true
         references = @Materials/GridMaterial.usda@
@@ -49,6 +19,114 @@ def Xform "Root"
         float3 xformOp:scale = (1, 1, 1)
         float3 xformOp:translate = (0, 0, 0)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def Xform "ryzhanoka_group" (
+        active = true
+    )
+    {
+        float3 xformOp:scale = (1.5, 1.5, 1.5)
+        float3 xformOp:translate = (0, -0.3, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def "ryzhanovka" (
+            active = true
+            references = @ryzhanovka.usdz@
+        )
+        {
+            reorder nameChildren = ["Chest", "Materials", "Meshes"]
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.0029999996, 0.0029999996, 0.0029999996)
+            float3 xformOp:translate = (1.5, 0.66, -2)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def "chest_ryzhanovka" (
+            active = true
+            references = @Chest.usdz@
+        )
+        {
+            reorder nameChildren = ["Chest", "Materials", "Meshes"]
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.001, 0.001, 0.001)
+            float3 xformOp:translate = (1.5, 0, -2)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    def Xform "sculpture_group" (
+        active = true
+    )
+    {
+        float3 xformOp:scale = (1.5, 1.5, 1.5)
+        float3 xformOp:translate = (0, -0.3, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def "sculpture_st" (
+            active = true
+            references = @Sculpture_St.usdz@
+        )
+        {
+            reorder nameChildren = ["Chest", "Materials", "Meshes"]
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.002, 0.002, 0.002)
+            float3 xformOp:translate = (-1.5, 0.45, -2)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def "chest_sculpture" (
+            active = true
+            references = @Chest.usdz@
+        )
+        {
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.001, 0.001, 0.001)
+            float3 xformOp:translate = (-1.5, 0, -2)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    def Xform "milos_group" (
+        active = true
+    )
+    {
+        float3 xformOp:scale = (1.5, 1.5, 1.5)
+        float3 xformOp:translate = (0, -0.3, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def "milos_plaster_cast" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            customData = {
+                float3 rotationEulerHint = (0, -0.17453292, 0)
+            }
+            references = @Milos_plaster_cast.usdz@
+        )
+        {
+            reorder nameChildren = ["chest_milos", "Materials", "Meshes"]
+            rel material:binding = None (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            quatf xformOp:orient = (0.9961947, 0, -0.087155744, 0)
+            float3 xformOp:scale = (0.0029999996, 0.0029999996, 0.0029999996)
+            float3 xformOp:translate = (0, 0.4, -2)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def "chest_milos" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            references = @Chest.usdz@
+        )
+        {
+            rel material:binding = None (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.001, 0.001, 0.001)
+            float3 xformOp:translate = (0, 0, -2)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
     }
 }
 

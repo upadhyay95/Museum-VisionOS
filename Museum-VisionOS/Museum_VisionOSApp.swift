@@ -10,8 +10,6 @@ import SwiftUI
 @main
 struct Museum_VisionOSApp: App {
 
-    @State private var currentStyle: ImmersionStyle = .full
-
     var body: some Scene {
         WindowGroup(id: "WelcomeView") {
             WelcomeView()
@@ -19,6 +17,6 @@ struct Museum_VisionOSApp: App {
 
         ImmersiveSpace(id: "ImmersiveSpace") {
             ImmersiveView()
-        }.immersionStyle(selection: $currentStyle, in: .full)
+        }.immersionStyle(selection: .constant(.mixed), in: .mixed)
     }
 }
