@@ -15,6 +15,10 @@ struct Museum_VisionOSApp: App {
             WelcomeView()
         }.windowStyle(.plain)
 
+        WindowGroup(id: "DetailView", for: String.self) { value in
+            DetailView(title: value.wrappedValue!)
+        }
+        
         ImmersiveSpace(id: "ImmersiveSpace") {
             ImmersiveView()
         }.immersionStyle(selection: .constant(.mixed), in: .mixed)

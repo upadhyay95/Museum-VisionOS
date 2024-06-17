@@ -39,6 +39,14 @@ def Xform "Root"
             float3 xformOp:scale = (0.0029999996, 0.0029999996, 0.0029999996)
             float3 xformOp:translate = (1.5, 0.66, -2)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def RealityKitComponent "Accessibility"
+            {
+                uniform token info:id = "RealityKit.Accessibility"
+                bool isEnabled = 1
+                string label = "ryzhanovka"
+                string value = "ryzhanovka"
+            }
         }
 
         def "chest_ryzhanovka" (
@@ -72,6 +80,14 @@ def Xform "Root"
             float3 xformOp:scale = (0.002, 0.002, 0.002)
             float3 xformOp:translate = (-1.5, 0.45, -2)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def RealityKitComponent "Accessibility"
+            {
+                uniform token info:id = "RealityKit.Accessibility"
+                bool isEnabled = 1
+                string label = "sculpture"
+                string value = "sculpture"
+            }
         }
 
         def "chest_sculpture" (
@@ -111,6 +127,14 @@ def Xform "Root"
             float3 xformOp:scale = (0.0029999996, 0.0029999996, 0.0029999996)
             float3 xformOp:translate = (0, 0.4, -2)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def RealityKitComponent "Accessibility"
+            {
+                uniform token info:id = "RealityKit.Accessibility"
+                bool isEnabled = 1
+                string label = "milos plaster cast"
+                string value = "milos plaster cast"
+            }
         }
 
         def "chest_milos" (

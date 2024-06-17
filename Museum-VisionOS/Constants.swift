@@ -23,8 +23,26 @@ struct Constants {
         static let dancingMan = "dancing_man"
         static let immersiveView = "Immersive"
         static let ryzhanovka = "ryzhanovka"
-        static let milos = "milos_plaster_cast"
-        static let sculpture = "sculpture_st"
+        static let milos_plaster_cast = "milos_plaster_cast"
+        static let sculpture_st = "sculpture_st"
         static let imageBasedLight = "ImageBasedLight"
+    }
+    
+    struct EntityGroup {
+        static let ryzhanoka_group = "ryzhanoka_group"
+        static let sculpture_group = "sculpture_group"
+        static let milos_group = "milos_group"
+    }
+    
+    struct ChestNames {
+        static let chest_ryzhanovka = "chest_ryzhanovka"
+        static let chest_sculpture = "chest_sculpture"
+        static let chest_milos = "chest_milos"
+    }
+    
+    struct ViewAndSpaceIDs {
+        static let welcomeView = "WelcomeView"
+        static let detailView = "DetailView"
+        static let immersiveSpace = "ImmersiveSpace"
     }
 }
