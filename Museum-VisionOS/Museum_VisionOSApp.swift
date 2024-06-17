@@ -13,9 +13,9 @@ struct Museum_VisionOSApp: App {
     @State private var currentStyle: ImmersionStyle = .full
 
     var body: some Scene {
-        WindowGroup {
+        WindowGroup(id: "WelcomeView") {
             WelcomeView()
-        }
+        }.windowStyle(.plain)
 
         ImmersiveSpace(id: "ImmersiveSpace") {
             ImmersiveView()

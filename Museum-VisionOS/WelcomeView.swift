@@ -21,16 +21,16 @@ struct WelcomeView: View {
         HStack {
             Model3D(named: "dancing_man", bundle: realityKitContentBundle)
             
-            VStack {
+            VStack(spacing: 30) {
                 Text(Constants.WelcomeScreen.title)
-                    .font(.title)
+                    .font(.extraLargeTitle)
                     .bold()
                     .multilineTextAlignment(.center)
                     .padding(.bottom, 20)
                     .accessibilityLabel(Constants.WelcomeScreen.title)
                 
                 Text(Constants.WelcomeScreen.welcomeMessage)
-                    .font(.body)
+                    .font(.title)
                     .multilineTextAlignment(.leading)
                     .padding()
                     .accessibilityLabel(Constants.WelcomeScreen.welcomeMessage)
@@ -47,12 +47,15 @@ struct WelcomeView: View {
                         .accessibilityLabel(Constants.WelcomeScreen.toggleLabel)
                         .accessibilityHint(Constants.WelcomeScreen.toggleHint)
                 }
-                .glassBackgroundEffect(displayMode: .always)
+                .glassBackgroundEffect()
                 .cornerRadius(10)
+                .tint(.accentColor)
+                .foregroundStyle(.white)
                 .padding(.top, 50)
                 
             }
             .padding()
+            .glassBackgroundEffect()
             .onChange(of: showImmersiveSpace) { _, newValue in
                 Task {
                     if newValue {

@@ -15,6 +15,7 @@
 		38B68F652C1EC485007B32EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38B68F642C1EC485007B32EC /* Assets.xcassets */; };
 		38B68F682C1EC485007B32EC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38B68F672C1EC485007B32EC /* Preview Assets.xcassets */; };
 		38B68F722C1EFE15007B32EC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B68F712C1EFE15007B32EC /* Constants.swift */; };
+		38B68F742C1F1D51007B32EC /* MuseumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B68F732C1F1D51007B32EC /* MuseumView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		38B68F672C1EC485007B32EC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		38B68F692C1EC485007B32EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		38B68F712C1EFE15007B32EC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		38B68F732C1F1D51007B32EC /* MuseumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuseumView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 				38B68F692C1EC485007B32EC /* Info.plist */,
 				38B68F662C1EC485007B32EC /* Preview Content */,
 				38B68F712C1EFE15007B32EC /* Constants.swift */,
+				38B68F732C1F1D51007B32EC /* MuseumView.swift */,
 			);
 			path = "Museum-VisionOS";
 			sourceTree = "<group>";
@@ -166,6 +169,7 @@
 			files = (
 				38B68F722C1EFE15007B32EC /* Constants.swift in Sources */,
 				38B68F5F2C1EC483007B32EC /* WelcomeView.swift in Sources */,
+				38B68F742C1F1D51007B32EC /* MuseumView.swift in Sources */,
 				38B68F5D2C1EC483007B32EC /* Museum_VisionOSApp.swift in Sources */,
 				38B68F612C1EC483007B32EC /* ImmersiveView.swift in Sources */,
 			);
