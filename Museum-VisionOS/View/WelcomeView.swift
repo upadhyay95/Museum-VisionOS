@@ -19,7 +19,7 @@ struct WelcomeView: View {
     
     var body: some View {
         HStack {
-            Model3D(named: "dancing_man", bundle: realityKitContentBundle)
+            Model3D(named: Constants.EntityNames.dancingMan, bundle: realityKitContentBundle)
             
             VStack(spacing: 30) {
                 Text(Constants.WelcomeScreen.title)
@@ -59,7 +59,7 @@ struct WelcomeView: View {
             .onChange(of: showImmersiveSpace) { _, newValue in
                 Task {
                     if newValue {
-                        switch await openImmersiveSpace(id: "ImmersiveSpace") {
+                        switch await openImmersiveSpace(id: Constants.ViewAndSpaceIDs.immersiveSpace) {
                         case .opened:
                             immersiveSpaceIsShown = true
                         case .error, .userCancelled:

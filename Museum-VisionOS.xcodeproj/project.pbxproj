@@ -48,6 +48,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		383E4ED72C20C747001306FA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				38B68F602C1EC483007B32EC /* ImmersiveView.swift */,
+				38B68F732C1F1D51007B32EC /* MuseumView.swift */,
+				383E4ED32C20B538001306FA /* DetailView.swift */,
+				38B68F5E2C1EC483007B32EC /* WelcomeView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		383E4ED82C20C762001306FA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				383E4ED52C20BD26001306FA /* SculptureModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		383E4ED92C20C76B001306FA /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				38B68F712C1EFE15007B32EC /* Constants.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		38B68F4C2C1EC483007B32EC = {
 			isa = PBXGroup;
 			children = (
@@ -68,17 +95,14 @@
 		38B68F572C1EC483007B32EC /* Museum-VisionOS */ = {
 			isa = PBXGroup;
 			children = (
+				383E4ED92C20C76B001306FA /* Utilities */,
+				383E4ED82C20C762001306FA /* Model */,
+				383E4ED72C20C747001306FA /* View */,
 				38B68F5C2C1EC483007B32EC /* Museum_VisionOSApp.swift */,
-				38B68F5E2C1EC483007B32EC /* WelcomeView.swift */,
-				38B68F602C1EC483007B32EC /* ImmersiveView.swift */,
-				38B68F732C1F1D51007B32EC /* MuseumView.swift */,
 				38B68F622C1EC483007B32EC /* ImageBasedLighting.skybox */,
 				38B68F642C1EC485007B32EC /* Assets.xcassets */,
 				38B68F692C1EC485007B32EC /* Info.plist */,
 				38B68F662C1EC485007B32EC /* Preview Content */,
-				38B68F712C1EFE15007B32EC /* Constants.swift */,
-				383E4ED32C20B538001306FA /* DetailView.swift */,
-				383E4ED52C20BD26001306FA /* SculptureModel.swift */,
 			);
 			path = "Museum-VisionOS";
 			sourceTree = "<group>";

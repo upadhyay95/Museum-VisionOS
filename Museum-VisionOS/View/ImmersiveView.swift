@@ -81,8 +81,8 @@ struct ImmersiveView: View {
                 }
             }
         }
-        .offset(y: -1500)
-        .offset(z: -2200)
+//        .offset(y: -1000)
+        .offset(z: -2000)
         .onAppear {
             dismissWindow(id: Constants.ViewAndSpaceIDs.welcomeView)
         }
