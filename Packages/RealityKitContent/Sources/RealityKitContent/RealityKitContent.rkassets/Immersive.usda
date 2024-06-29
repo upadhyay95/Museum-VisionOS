@@ -25,7 +25,7 @@ def Xform "Root"
         active = true
     )
     {
-        float3 xformOp:scale = (1.5, 1.5, 1.5)
+        float3 xformOp:scale = (2.5, 2.5, 2.5)
         float3 xformOp:translate = (0, -0.3, 0)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
 
@@ -66,7 +66,7 @@ def Xform "Root"
         active = true
     )
     {
-        float3 xformOp:scale = (1.5, 1.5, 1.5)
+        float3 xformOp:scale = (2.5, 2.5, 2.5)
         float3 xformOp:translate = (0, -0.3, 0)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
 
@@ -75,7 +75,7 @@ def Xform "Root"
             references = @Sculpture_St.usdz@
         )
         {
-            reorder nameChildren = ["Chest", "Materials", "Meshes"]
+            reorder nameChildren = ["Materials", "Meshes", "Accessibility"]
             quatf xformOp:orient = (1, 0, 0, 0)
             float3 xformOp:scale = (0.002, 0.002, 0.002)
             float3 xformOp:translate = (-1.5, 0.45, -2)
@@ -106,7 +106,7 @@ def Xform "Root"
         active = true
     )
     {
-        float3 xformOp:scale = (1.5, 1.5, 1.5)
+        float3 xformOp:scale = (2.5, 2.5, 2.5)
         float3 xformOp:translate = (0, -0.3, 0)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
 

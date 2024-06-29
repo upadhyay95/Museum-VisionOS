@@ -12,7 +12,8 @@ struct Museum_VisionOSApp: App {
 
     var body: some Scene {
         WindowGroup(id: "WelcomeView") {
-            WelcomeView()
+//            WelcomeView()
+            TabViewWelcomeScreen()
         }.windowStyle(.plain)
 
         WindowGroup(id: "DetailView", for: String.self) { value in

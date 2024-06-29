@@ -7,6 +7,8 @@
 
 import Foundation
 import SwiftUI
+import RealityKit
+import RealityKitContent
 
 struct DetailView: View {
     @State var title: String
@@ -22,43 +24,90 @@ struct DetailView: View {
             Button(action: {
                 dismissWindow(id: Constants.ViewAndSpaceIDs.detailView)
             }) {
-                Text("Close")
+                Text(Constants.DetailsScreen.closeText)
                     .font(.title2)
-                    .foregroundColor(.red)
                     .padding()
-                    .cornerRadius(10)
             }
+            .glassBackgroundEffect()
             .accessibilityLabel("Close Button")
             .accessibilityHint("Closes the detail view")
         }
         .padding()
+        .background(LinearGradient(gradient: Constants.GradientBG.mountainRock,
+                                   startPoint: .leading,
+                                   endPoint: .trailing))
+        .cornerRadius(10)
     }
     
     /// Returns the content view for a given title
     @ViewBuilder
     private func contentForTitle(_ title: String) -> some View {
         if title.contains(Constants.EntityNames.milos_plaster_cast) {
-            titleView("Aphrodite of Milos", content: milosContent)
+            titleView("Aphrodite of Milos", content: milosContent, modelName: Constants.DetailsEntityNames.milos_plaster_cast)
         } else if title.contains(Constants.EntityNames.ryzhanovka) {
-            titleView("Scythian Princess from Ryzhanovka", content: ryzhanovkaContent)
+            titleView("Scythian Princess from Ryzhanovka", content: ryzhanovkaContent, modelName: Constants.DetailsEntityNames.ryzhanovka)
         } else {
-            titleView("St. Onuphrius", content: stOnuphriusContent)
+            titleView("St. Onuphrius", content: stOnuphriusContent, modelName: Constants.DetailsEntityNames.sculpture_st)
         }
     }
     
     /// Title view with dynamic content
-    private func titleView(_ title: String, content: String) -> some View {
-        VStack(spacing: 20) {
-            Text(title)
-                .font(.extraLargeTitle)
-                .bold()
-                .accessibilityLabel("\(title) Header")
-                .accessibilityAddTraits(.isHeader)
-            
-            Text(content)
-                .font(.title2)
-                .accessibilityLabel("\(title) Description")
+    private func titleView(_ title: String, content: String, modelName: String) -> some View {
+        HStack{
+            RealityView { realityViewContent in
+                //Sculpture_St.usdz
+                //ryzhanovka.usdz
+                //Milos_plaster_cast
+                async let drummer = Entity(named: modelName, in: realityKitContentBundle)
+                
+                if let drummerEntity = try? await drummer {
+                    try? await drummer.scale = SIMD3(x: Float(0.001), y: Float(0.001), z: Float(0.001))
+                    realityViewContent.add(drummerEntity)
+                    
+                    // Add light for the immersive resource
+                    guard let resource = try? await EnvironmentResource(named: Constants.EntityNames.imageBasedLight) else {
+                        return
+                    }
+                    let iblComponent = ImageBasedLightComponent(source: .single(resource), intensityExponent: 0.5)
+                    try? await drummer.components.set(iblComponent)
+                    try? await drummer.components.set(ImageBasedLightReceiverComponent(imageBasedLight: drummer))
+                    
+                }
+            } update: { realityViewContent in
+                if let scene = realityViewContent.entities.first {
+                    scene.availableAnimations.forEach { animation in
+                        scene.playAnimation(animation.repeat(), transitionDuration: 3, startsPaused: false)
+                    }
+                    // step 25
+                    let orbit = OrbitAnimation(duration: 10.0,
+                                               axis: SIMD3<Float>(x: 0, y: 1.0, z: 0.0),
+                                               startTransform: scene.transform,
+                                               spinClockwise: true,
+                                               orientToPath: true,
+                                               rotationCount: 1.0,
+                                               bindTarget: .transform,
+                                               repeatMode: .repeat)
+                    
+                    if let animation = try? AnimationResource.generate(with: orbit) {
+                        scene.playAnimation(animation)
+                    }
+                }
+            }
+            ScrollView {
+                VStack(spacing: 20) {
+                    Text(title)
+                        .font(.extraLargeTitle)
+                        .bold()
+                        .accessibilityLabel("\(title) Header")
+                        .accessibilityAddTraits(.isHeader)
+                    
+                    Text(content)
+                        .font(.title2)
+                        .accessibilityLabel("\(title) Description")
+                }
+            }
         }
+        .padding()
     }
     
     // Content for each section
@@ -82,18 +131,5 @@ struct DetailView: View {
 }
 
 #Preview {
-    DetailView(title: Constants.EntityNames.milos_plaster_cast)
+    DetailView(title: Constants.EntityNames.ryzhanovka)
 }
-
-
-
-struct LearnMoreButtonView: View {
-  var body: some View {
-    Text("Know more")
-      .font(.extraLargeTitle)
-      .tint(.blue)
-      .padding([.vertical, .horizontal], 50)
-      .glassBackgroundEffect()
-  }
-}
-

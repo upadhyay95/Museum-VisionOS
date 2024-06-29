@@ -18,10 +18,10 @@ struct WelcomeView: View {
     @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
     
     var body: some View {
-        HStack {
-            Model3D(named: Constants.EntityNames.dancingMan, bundle: realityKitContentBundle)
-            
             VStack(spacing: 30) {
+                Model3D(named: Constants.EntityNames.drummer, bundle: realityKitContentBundle)
+                .padding()
+                
                 Text(Constants.WelcomeScreen.title)
                     .font(.extraLargeTitle)
                     .bold()
@@ -48,30 +48,31 @@ struct WelcomeView: View {
                         .accessibilityHint(Constants.WelcomeScreen.toggleHint)
                 }
                 .glassBackgroundEffect()
-                .cornerRadius(10)
-                .tint(.accentColor)
-                .foregroundStyle(.white)
                 .padding(.top, 50)
-                
+                .cornerRadius(10)
             }
-            .padding()
-            .glassBackgroundEffect()
-            .onChange(of: showImmersiveSpace) { _, newValue in
-                Task {
-                    if newValue {
-                        switch await openImmersiveSpace(id: Constants.ViewAndSpaceIDs.immersiveSpace) {
-                        case .opened:
-                            immersiveSpaceIsShown = true
-                        case .error, .userCancelled:
-                            fallthrough
-                        @unknown default:
-                            immersiveSpaceIsShown = false
-                            showImmersiveSpace = false
-                        }
-                    } else if immersiveSpaceIsShown {
-                        await dismissImmersiveSpace()
+        .padding()
+        .background(LinearGradient(gradient: Constants.GradientBG.eternalConstance,
+                                   startPoint: .leading,
+                                   endPoint: .trailing))
+        .cornerRadius(10)
+        .shadow(radius: 10)
+        .glassBackgroundEffect()
+        .onChange(of: showImmersiveSpace) { _, newValue in
+            Task {
+                if newValue {
+                    switch await openImmersiveSpace(id: Constants.ViewAndSpaceIDs.immersiveSpace) {
+                    case .opened:
+                        immersiveSpaceIsShown = true
+                    case .error, .userCancelled:
+                        fallthrough
+                    @unknown default:
                         immersiveSpaceIsShown = false
+                        showImmersiveSpace = false
                     }
+                } else if immersiveSpaceIsShown {
+                    await dismissImmersiveSpace()
+                    immersiveSpaceIsShown = false
                 }
             }
         }
@@ -81,3 +82,4 @@ struct WelcomeView: View {
 #Preview(windowStyle: .volumetric) {
     WelcomeView()
 }
+
